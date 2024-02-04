@@ -1,0 +1,34 @@
+// ---- GENERAL ----//
+/*.content_form {
+  flex: 1;
+  overflow-y: auto;  Make the content scrollable 
+  padding: 20px;  Add some padding for better readability 
+}*/
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form_header {
+  margin-bottom: 30px;
+  margin-top: 50px;
+}
+
+//-----Registration-----//
+.registration-form,
+button,
+input {
+  width: 100%; /* Make the button full width */
+}
+
+//------LOGIN------//
+
+.login-form {
+  max-width: 600px; /* Adjust the max-width as needed */
+  width: 100%;
+
+  button {
+    background-color: #24965f;
+    width: 100%;
+  }
+}
