@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/dist/css/styles.css" />
+    <title>Feed</title>
+  </head>
+
+  <body>
+    <div class="footer_alignment">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/profile/">Noroff - CA - JS2</a>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item current-nav">
+                    <a class="nav-link active"  aria-current="page" href="/profile/">Profile</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/feed/"
+                      >Feed</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <button class="btn btn-warning" id="logoutBtn">logout</button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+      <main>
+        <div class="container mt-5">
+            <div class="row">
+              <div class="col-md-4">
+                <!-- Profile Picture -->
+                <img src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Profile Picture" class="img-fluid rounded-circle">
+              </div>
+              <div class="col-md-8">
+                <!-- User Info -->
+                <h1 class="display-4">Your Name</h1>
+                <p class="lead">Bio/Caption goes here.</p>
+        
+                <!-- Social Media Links -->
+                <div class="mb-3">
+                  <a href="#" class="btn btn-primary">Facebook</a>
+                  <a href="#" class="btn btn-info">Twitter</a>
+                  <a href="#" class="btn btn-danger">Instagram</a>
+                </div>
+        
+                <!-- Additional Information -->
+                <ul class="list-group">
+                  <li class="list-group-item"><strong>Email:</strong> your.email@example.com</li>
+                  <li class="list-group-item"><strong>Location:</strong> City, Country</li>
+                  <li class="list-group-item"><strong>Website:</strong> <a href="http://yourwebsite.com" target="_blank">yourwebsite.com</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+      <footer class="footer mt-auto py-3">
+        <div class="container text-center">
+          <span class="">Your Footer Content Goes Here</span>
+        </div>
+      </footer>
+    </div>
+</main>
+
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/js/script.mjs" type="module"></script>
+  </body>
+</html>

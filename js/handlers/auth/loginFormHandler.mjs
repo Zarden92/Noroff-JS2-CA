@@ -28,6 +28,7 @@ async function handleLoginForm(event) {
     // Laura
     if (response && response.accessToken) {
       utlilities.save("token", response.accessToken);
+      utlilities.save("username", response.username);
       window.location.href = "/feed";
     }
   } catch (error) {
