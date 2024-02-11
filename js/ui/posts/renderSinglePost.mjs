@@ -1,49 +1,21 @@
-export function renderPosts(parent, posts) {
+export function renderSinglePost(parent, post) {
   const container = document.querySelector(parent);
 
   container.innerHTML = "";
 
-  //posts.forEach((post) => {
-  //const postContainer = createPost(post);
-  //container.appendChild(postContainer);
-  //});
-
-  // Should get used to map for react later on
-  const postsHtml = posts.map((post) => {
-    return createPost(post);
-  });
-
-  container.append(...postsHtml);
-  console.log(postsHtml);
+  const postContainer = createPost(post); // Create HTML elements for the single post
+  container.appendChild(postContainer);
 }
 
-/*
-function createPost(post) {
-  const { id, title: heading, body } = post; // destructuring
+/*export function renderSinglePost(parent, post) {
+  const container = document.querySelector(parent);
 
-  const postContainer = document.createElement("div");
-  postContainer.classList.add("post");
+  container.innerHTML = "";
 
-  const title = document.createElement("h3");
-  title.textContent = heading;
-
-  // test
-  const bodyParagraph = document.createElement("p");
-  bodyParagraph.textContent = body;
-
-  // create link to post html with id in the querystring
-  const link = document.createElement("a");
-  link.href = `/post/index.html?id=${id}`;
-  link.textContent = "Read more";
-  link.classList.add("post-link");
-
-  postContainer.appendChild(title);
-
-  postContainer.appendChild(bodyParagraph); // test
-
-  postContainer.appendChild(link);
-
-  return postContainer;
+  post.forEach((singlePost) => {
+    const postContainer = createPost(singlePost);
+    container.appendChild(postContainer);
+  });
 }*/
 
 function createPost(post) {
@@ -72,6 +44,12 @@ function createPost(post) {
   link.href = `/post/index.html?id=${id}`;
   link.textContent = "Read more";
   link.classList.add("btn", "btn-primary");
+
+  // Add event listener to handle link click
+  link.addEventListener("click", (event) => {
+    event.preventDefault(); // Prevent default link behavior
+    window.location.href = link.href; // Redirect to the single post page
+  });
 
   // Append elements to card body
   cardBody.appendChild(title);
