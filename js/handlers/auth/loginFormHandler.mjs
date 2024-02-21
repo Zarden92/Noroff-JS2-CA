@@ -22,14 +22,16 @@ async function handleLoginForm(event) {
   try {
     fieldset.disabled = true;
     const response = await login(userDetails); // or userData??
-    console.log(response);
     // location.href ="/posts or /feed"
 
     // Laura
     if (response && response.accessToken) {
       utlilities.save("token", response.accessToken);
-      utlilities.save("username", response.username);
+      utlilities.save("userName", response.name);
+      //localStorage.setItem("userName", response.name);
+      utlilities.save("email", response.email);
       window.location.href = "/feed";
+      console.log(response.name);
     }
   } catch (error) {
     console.log(error);

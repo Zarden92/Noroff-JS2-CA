@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/dist/css/styles.css" />
-    <title>Feed</title>
+    <title>New Post</title>
   </head>
 
   <body>
@@ -42,50 +42,46 @@
       </nav>
 
       <main>
-        <div class="container mt-5">
-          <div class="row">
-            <div class="col-md-4">
-              <!-- Profile Picture -->
-              <img
-                src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                alt="Profile Picture"
-                class="img-fluid rounded-circle profile_picture"
+        <div class="container">
+          <h1 class="text-center mt-5">Create new post</h1>
+          <form id="createPostForm">
+            <div id="message"></div>
+            <div class="mb-3">
+              <input name="id" type="hidden" />
+              <label for="title" class="form-label">title</label>
+              <input
+                type="text"
+                class="form-control"
+                id="post-title"
+                placeholder="Enter post content"
+                name="title"
               />
             </div>
-            <div class="col-md-8">
-              <!-- User Info -->
-              <h1 class="display-4">Your Name</h1>
-              <p class="lead">Bio/Caption goes here.</p>
-
-              <!-- Social Media Links -->
-              <div class="mb-3">
-                <a href="#" class="btn btn-primary">Facebook</a>
-                <a href="#" class="btn btn-info">Twitter</a>
-                <a href="#" class="btn btn-danger">Instagram</a>
-              </div>
-
-              <!-- Additional Information -->
-              <ul class="list-group">
-                <li class="list-group-item">
-                  <strong>Email:</strong> your.email@example.com
-                </li>
-                <li class="list-group-item">
-                  <strong>Location:</strong> City, Country
-                </li>
-                <li class="list-group-item">
-                  <strong>Website:</strong>
-                  <a href="http://yourwebsite.com" target="_blank"
-                    >yourwebsite.com</a
-                  >
-                </li>
-              </ul>
+            <div class="mb-3">
+              <label for="post-body" class="form-label">Post content</label>
+              <textarea
+                class="form-control"
+                id="post-body"
+                rows="3"
+                placeholder="Enter post body"
+                name="body"
+              ></textarea>
             </div>
-          </div>
-        </div>
+            <div class="mb-3">
+              <label for="image-url" class="form-label">Image URL</label>
+              <input
+                type="text"
+                class="form-control"
+                id="image-url"
+                placeholder="Enter image URL"
+                name="media"
+              />
+            </div>
 
-        <h2 class="text-center mt-2 mb-4">My Posts</h2>
-        <hr class="mb-3" />
-        <div id="profile_posts" class="profile_container container"></div>
+            <button type="submit" class="btn btn-success">Create post</button>
+            <button type="submit" class="btn btn-secondary mt-3">return</button>
+          </form>
+        </div>
       </main>
 
       <footer class="footer mt-auto py-3">

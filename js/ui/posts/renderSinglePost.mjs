@@ -3,27 +3,22 @@ export function renderSinglePost(parent, post) {
 
   container.innerHTML = "";
 
-  const postContainer = createPost(post); // Create HTML elements for the single post
-  container.appendChild(postContainer);
+  // Create HTML elements for the single post
+  const postHtml = createPost(post);
+
+  // Append the single post HTML to the container
+  container.appendChild(postHtml);
+
+  // Optionally, log the created HTML for debugging
+  console.log(postHtml);
 }
 
-/*export function renderSinglePost(parent, post) {
-  const container = document.querySelector(parent);
-
-  container.innerHTML = "";
-
-  post.forEach((singlePost) => {
-    const postContainer = createPost(singlePost);
-    container.appendChild(postContainer);
-  });
-}*/
-
 function createPost(post) {
-  const { id, title: heading, body } = post; // destructuring
+  const { title: heading, body, media } = post; // destructuring
 
   // Create a Bootstrap card element
   const card = document.createElement("div");
-  card.classList.add("card");
+  card.classList.add("card", "text-center", "bg-light");
 
   // Create a card body
   const cardBody = document.createElement("div");
@@ -34,30 +29,47 @@ function createPost(post) {
   title.classList.add("card-title");
   title.textContent = heading;
 
-  // Create a card text for the post body
-  const bodyParagraph = document.createElement("p");
-  bodyParagraph.classList.add("card-text");
-  bodyParagraph.textContent = body;
+  const img = document.createElement("img");
+  img.src = media;
+  img.classList.add("card-img-top", "mt-5");
 
-  // create link to post html with id in the querystring
-  const link = document.createElement("a");
-  link.href = `/post/index.html?id=${id}`;
-  link.textContent = "Read more";
-  link.classList.add("btn", "btn-primary");
+  // Create elements for created and updated dates
+  const createdDate = document.createElement("p");
+  createdDate.textContent = `Created: ${new Date(
+    post.created
+  ).toLocaleDateString()}`;
 
-  // Add event listener to handle link click
-  link.addEventListener("click", (event) => {
-    event.preventDefault(); // Prevent default link behavior
-    window.location.href = link.href; // Redirect to the single post page
+  const updatedDate = document.createElement("p");
+  updatedDate.textContent = `Updated: ${new Date(
+    post.updated
+  ).toLocaleDateString()}`;
+
+  // Create a card text for the body
+  const text = document.createElement("p");
+  text.classList.add("card-text");
+  text.textContent = body;
+
+  const button = document.createElement("button");
+  button.textContent = "Return to Feed";
+  button.classList.add("btn", "btn-danger"); // Add Bootstrap classes for styling
+
+  // Add an event listener to the button
+  button.addEventListener("click", () => {
+    window.location.href = "/feed/";
   });
 
-  // Append elements to card body
+  // Append the title and text to the card body
   cardBody.appendChild(title);
-  cardBody.appendChild(bodyParagraph);
-  cardBody.appendChild(link);
+  cardBody.appendChild(text);
 
-  // Append image and card body to card
+  cardBody.appendChild(createdDate);
+  cardBody.appendChild(updatedDate);
+
+  // Append the card body to the card
+
+  card.appendChild(img);
   card.appendChild(cardBody);
+  card.appendChild(button);
 
   return card;
 }

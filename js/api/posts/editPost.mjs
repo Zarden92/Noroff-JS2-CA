@@ -1,17 +1,18 @@
 import { POSTS_URL } from "../../constants/constants.mjs";
 
-export async function getSinglePost(id) {
-  if (!id) {
-    throw new Error("No post ID was provided");
-  }
+export async function editPost(post) {
   const token = localStorage.getItem("token");
-  console.log("Token retrieved from storage:", token);
+
+  const { id } = post;
+  delete post.id;
 
   if (!token) {
-    throw new Error("Please log in to view posts");
+    throw new Error("Please log in to edit post");
   }
 
   const options = {
+    method: "PUT",
+    body: JSON.stringify(post),
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,

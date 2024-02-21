@@ -6,12 +6,9 @@ export async function login(userDetails) {
     headers: { "content-Type": "application/json" },
     body: JSON.stringify(userDetails),
   };
-  //console.log(userDetails);
 
   const response = await fetch(LOGIN_URL, options);
   const json = await response.json();
-
-  //console.log(json);
 
   if (response.ok) {
     return json;

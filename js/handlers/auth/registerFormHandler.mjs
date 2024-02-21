@@ -23,7 +23,8 @@ async function handleRegisterForm(event) {
 
   try {
     fieldset.disabled = true;
-    await register(userDetails);
+    const response = await register(userDetails);
+    console.log(response);
     displayMessage("#message", "success", "You registred successfully");
     form.reset();
   } catch (error) {

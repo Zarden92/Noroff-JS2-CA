@@ -3,7 +3,7 @@ import { displayMessage } from "../../ui/common/displayMessage.mjs";
 import { renderPosts } from "../../ui/posts/renderPosts.mjs";
 
 export async function displayPostHandler() {
-  console.log("Display posts handler");
+  //console.log("Display posts handler");
 
   try {
     const posts = await getPosts();

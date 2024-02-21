@@ -3,6 +3,8 @@ import { registerFormHandler } from "./handlers/auth/registerFormHandler.mjs";
 import { logoutHandler } from "./handlers/auth/logoutHandler.mjs";
 import { displayPostHandler } from "./handlers/posts/displayPostHandler.mjs";
 import { displaySinglePostHandler } from "./handlers/posts/displaySinglePostHandler.mjs";
+import { displayProfilePostHandler } from "./handlers/posts/displayProfilePostHandler.mjs";
+import { editPostHandler } from "./handlers/posts/editPostHandler.mjs";
 
 function router() {
   const pathname = window.location.pathname;
@@ -30,6 +32,16 @@ function router() {
     case "/post/index.html":
       console.log("This is the page for a single post");
       displaySinglePostHandler();
+      logoutHandler();
+      break;
+    case "/profile/":
+      console.log("This is the profile page");
+      displayProfilePostHandler();
+      logoutHandler();
+      break;
+    case "/profile/edit-post.html":
+      console.log("This is the profile-edit page");
+      editPostHandler();
       logoutHandler();
       break;
   }
