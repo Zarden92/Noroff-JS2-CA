@@ -2,7 +2,8 @@
 
 Course assignment for school usig:
 
-- HTML CSS
+- HTML 
+- CSS
 - Bootstrap
 - Sass
 - JavaScript
@@ -11,16 +12,20 @@ Course assignment for school usig:
 
 # Expectations from this project:
 
-Assignment to learn how to make API calls using javaScript.
 
-- Working registration page for a social media account - for accounts using @noroff.no or stud.noroff.no
-- Working login page for user accounts
-- working logout function deleting the accessToken
-- Api-call to receive Posts on the feed page.
-- local storage
-- View a single post
-- Delete / create / edit posts for the feed page
-- Working sort function
+## Project Objectives:
+
+The main objective of this assignment is to gain proficiency in making API calls using JavaScript. The project encompasses the following functionalities:
+
+    - Registration Page: Allows users to register for a social media account using either "@noroff.no" or "stud.noroff.no" email domains.
+    - Login Page: Provides authentication for user accounts.
+    - Logout Functionality: Enables users to logout, deleting the access token.
+    - API Calls: Utilizes API calls to retrieve posts for the feed page.
+    - Local Storage: Stores relevant data locally for improved user experience.
+    - Single Post View: Allows users to view individual posts.
+    - CRUD Operations: Enables users to create, edit, and delete posts on the feed page.
+    - Sort Function: Implements a working sort function for post management.
+    
 
 # Install Instuctions:
 
@@ -29,3 +34,28 @@ Download project then run these commands:
 1. npm install bootstrap
 2. npm run build
 3. npm run watch
+
+4. Clone the Repository: Download or clone the repository to your local machine.
+
+bash
+
+git clone <repository_url>
+
+Install Dependencies: Navigate to the project directory and install necessary dependencies using npm.
+
+bash
+
+cd <project_directory>
+npm install
+
+Build the Project: Compile and build the project using npm.
+
+bash
+
+npm run build
+
+Run the Project: Start the project and watch for changes.
+
+bash
+
+npm run watch
