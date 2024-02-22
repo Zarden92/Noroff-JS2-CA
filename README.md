@@ -1,16 +1,17 @@
 # Noroff API Course Assignment
 
-Course assignment for school usig:
 
+Course assignment for school usig:
 - HTML 
 - CSS
 - Bootstrap
 - Sass
 - JavaScript
 
-* Primary focus is JavaScript for this assignment, so there will not be much styling.
 
-# Expectations from this project:
+* Primary focus is JavaScript for this assignment, so there will not be much styling for this project.
+  - Just making it responsive, since we already did a project working with bootstrap and sass.
+  - I could have continued on my previous project, but i wanted to set up a new project with blank slates
 
 
 ## Project Objectives:
@@ -34,28 +35,5 @@ Download project then run these commands:
 1. npm install bootstrap
 2. npm run build
 3. npm run watch
-
 4. Clone the Repository: Download or clone the repository to your local machine.
 
-bash
-
-git clone <repository_url>
-
-Install Dependencies: Navigate to the project directory and install necessary dependencies using npm.
-
-bash
-
-cd <project_directory>
-npm install
-
-Build the Project: Compile and build the project using npm.
-
-bash
-
-npm run build
-
-Run the Project: Start the project and watch for changes.
-
-bash
-
-npm run watch
