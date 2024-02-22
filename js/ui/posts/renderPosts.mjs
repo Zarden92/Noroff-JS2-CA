@@ -3,17 +3,15 @@ export function renderPosts(parent, posts) {
 
   container.innerHTML = "";
 
-  // Should get used to map for react later on
   const postsHtml = posts.map((post) => {
     return createPost(post);
   });
 
   container.append(...postsHtml);
-  //console.log(postsHtml);
 }
 
 function createPost(post) {
-  const { id, title: heading, body, media } = post; // destructuring
+  const { id, title: heading, body, media } = post;
 
   // Create a Bootstrap card element
   const card = document.createElement("div");
@@ -43,7 +41,7 @@ function createPost(post) {
   // create link to post html with id in the querystring
   const button = document.createElement("button");
   button.textContent = "Read more...";
-  button.classList.add("btn", "btn-danger"); // Add Bootstrap classes for styling
+  button.classList.add("btn", "btn-success"); // Add Bootstrap classes for styling
 
   // Add an event listener to the button
   button.addEventListener("click", () => {
