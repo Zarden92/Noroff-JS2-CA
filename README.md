@@ -9,9 +9,9 @@ Course assignment for school usig:
 - JavaScript
 
 
-* Primary focus is JavaScript for this assignment, so there will not be much styling for this project.
-  - Just making it responsive, since we already did a project working with bootstrap and sass.
-  - I could have continued on my previous project, but i wanted to set up a new project with blank slates
+* Primary focus is JavaScript for this Course assignment, so there will not be much styling for this project.
+  - Just making it responsive, since we already did a project working with Bootstrap and sass ref:
+  - I wanted to set up a new project with blank slates
 
 
 ## Project Objectives:
