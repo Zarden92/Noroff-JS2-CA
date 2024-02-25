@@ -33,8 +33,11 @@ The main objective of this assignment is to gain proficiency in making API calls
 Download project then run these commands:
 
 1.Clone the Repository: Download or clone the repository to your local machine.
+
 2. npm install bootstrap
-3. npm run build
-4. npm run watch
+   
+4. npm run build
+   
+6. npm run watch
 
 
