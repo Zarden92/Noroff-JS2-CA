@@ -23,16 +23,13 @@ export function registerFormHandler() {
  * and sends a request to register the user using the register API.
  * If the registration is successful, it displays a success message and resets the form.
  * If there's an error, it logs the error and displays an error message.
- *
- * @async
  * @function
  * @param {Event} event - The form submission event
- * @returns {Promise<void>}
  */
 
 async function handleRegisterForm(event) {
   event.preventDefault();
-  console.log(event);
+  //console.log(event);
 
   const form = event.target;
 
@@ -45,12 +42,11 @@ async function handleRegisterForm(event) {
   try {
     fieldset.disabled = true;
     const response = await register(userDetails);
-    console.log(response);
     displayMessage("#message", "success", "You registred successfully");
     form.reset();
   } catch (error) {
     console.log(error);
-    displayMessage("#message", "danger", error.message); // check error message
+    displayMessage("#message", "danger", error.message);
   } finally {
     fieldset.disabled = false;
   }

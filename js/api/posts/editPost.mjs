@@ -1,5 +1,13 @@
 import { POSTS_URL } from "../../constants/constants.mjs";
 
+/**
+ * Edits an existing post on the server.
+ * @param {Object} post - The data for the post to edit. Must include the post's ID.
+ * @throws {Error} If the user is not logged in.
+ * @throws {Error} If the server responds with an error.
+ * @returns {Promise<Object>} The data for the edited post.
+ */
+
 export async function editPost(post) {
   const token = localStorage.getItem("token");
 
@@ -20,7 +28,6 @@ export async function editPost(post) {
   };
 
   const response = await fetch(`${POSTS_URL}/${id}`, options);
-  console.log(response);
   const json = await response.json();
 
   if (!response.ok) {

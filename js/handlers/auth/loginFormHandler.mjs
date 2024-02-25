@@ -9,7 +9,7 @@ import * as utlilities from "../../utlilities/storage/index.mjs";
  */
 
 export function loginFormHandler() {
-  console.log("Function loginFormHandler is called");
+  //console.log("Function loginFormHandler is called");
   const form = document.querySelector("#loginForm");
   form.addEventListener("submit", handleLoginForm);
 }
@@ -43,13 +43,11 @@ async function handleLoginForm(event) {
     fieldset.disabled = true;
     const response = await login(userDetails);
 
-    // Laura
     if (response && response.accessToken) {
       utlilities.save("token", response.accessToken);
       utlilities.save("userName", response.name);
       utlilities.save("email", response.email);
       window.location.href = "/feed";
-      console.log(response.name);
     }
   } catch (error) {
     console.log(error);

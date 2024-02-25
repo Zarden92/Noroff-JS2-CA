@@ -23,5 +23,6 @@ async function handleDeletePost(event) {
   const deleteComfirm = confirm("Are you sure you want to delete this post?");
   if (deleteComfirm) {
     await deletePost(id);
+    location.reload();
   }
 }

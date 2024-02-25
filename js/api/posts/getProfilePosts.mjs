@@ -7,7 +7,7 @@ import { PROFILE_URL } from "../../constants/constants.mjs";
  */
 export async function getProfilePosts(userName) {
   const token = localStorage.getItem("token");
-  console.log("Token retrieved from storage:", token);
+  //console.log("Token retrieved from storage:", token);
 
   if (!token) {
     throw new Error("Please log in to view posts");
@@ -24,7 +24,6 @@ export async function getProfilePosts(userName) {
   try {
     const response = await fetch(PROFILE_URL, options);
     const json = await response.json();
-    console.log(response);
 
     if (!response.ok) {
       throw new Error(json.errors[0].message);

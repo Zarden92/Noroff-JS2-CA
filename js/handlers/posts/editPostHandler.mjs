@@ -1,6 +1,13 @@
 import { getSinglePost } from "../../api/posts/getSinglePost.mjs";
 import { displayMessage } from "../../ui/common/displayMessage.mjs";
-import { editPost } from "../../api/posts/editPost.mjs";
+import { handleEditPost } from "./handleEditPost.mjs";
+
+/**
+ * Handles the process of editing a post.
+ * It fetches the post with the given id from the URL parameters,
+ * populates the form with the post data and sets up the form submission handler.
+ * @throws {Error} If no post id was provided in the URL parameters.
+ */
 
 export async function editPostHandler() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -12,13 +19,23 @@ export async function editPostHandler() {
 
   try {
     const post = await getSinglePost(id);
-    console.log(post); // Log the post object to verify its structure and content
-    populateForm(post); // Call populateForm with the retrieved post
+    populateForm(post);
   } catch (error) {
     console.log(error);
     displayMessage("#message", "danger", error);
   }
 }
+
+/**
+ * Populates the form with the given post data.
+ * It sets the form fields with the post properties and sets up the form submission handler.
+ * @param {Object} post - The post data.
+ * @param {string} post.id - The id of the post.
+ * @param {string} post.title - The title of the post.
+ * @param {string} post.body - The body of the post.
+ * @param {Object} post.media - The media of the post.
+ * @param {string} post.media.url - The URL of the media.
+ */
 
 function populateForm(post) {
   const { id, title, body, media } = post;
@@ -27,38 +44,14 @@ function populateForm(post) {
     console.error("Form element not found");
     return;
   }
+
   form.id.value = id;
   form.title.value = title;
   form.body.value = body;
 
-  // Check if media exists and has a URL
   if (media && media.url) {
     form.media.value = media.url;
   }
 
-  form.addEventListener("submit", handleEditPost);
-}
-
-// move this to another file and import
-async function handleEditPost(event) {
-  event.preventDefault();
-
-  const form = event.target;
-
-  const formData = new FormData(form);
-  const entries = formData.entries();
-  const post = Object.fromEntries(entries);
-
-  console.log(post);
-
-  try {
-    await editPost(post);
-    displayMessage("#message", "success", "Post successfully edited.");
-    setTimeout(() => {
-      window.location.href = "/profile/";
-    }, 2000);
-  } catch (error) {
-    console.log(error);
-    displayMessage("#message", "danger", error.message);
-  }
+  form.addEventListener("submit", handleEditPost); // Now handleEditPost is defined in a separate file
 }

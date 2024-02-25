@@ -2,26 +2,44 @@ import { searchPosts } from "../../api/posts/searchPost.mjs"; // Update the path
 import { renderPosts } from "../../ui/posts/renderPosts.mjs"; // Update the path accordingly
 import { displayMessage } from "../../ui/common/displayMessage.mjs";
 
-// Handler function for searching posts by tag
-export async function handleSearch() {
-  try {
-    const searchInput = document.getElementById("search-feed");
-    const tag = searchInput.value.trim(); // Get the tag from the input field
+/**
+ * Handles the search operation.
+ *
+ * @param {string} tag - The tag to search for.
+ * @throws Will throw an error if the tag is not provided.
+ */
 
+export async function handleSearch(tag) {
+  try {
     if (!tag) {
-      throw new Error("Please enter a search tag"); // Corrected error message
+      throw new Error("Please enter a search tag");
     }
 
-    const searchResults = await searchPosts(tag); // Call the searchPosts function with the tag
-    renderPosts("#posts", searchResults); // Render the search results in the specified parent container
+    const searchResults = await searchPosts(tag);
+    renderPosts("#posts", searchResults);
   } catch (error) {
     console.log(error);
-    displayMessage("#posts", "danger", error.message); // Corrected selector from #post to #posts
+    displayMessage("#posts", "danger", error.message);
   }
 }
 
-// Check if the search-feed element exists before attaching the event listener
+/**
+ * Search feed button element.
+ */
+
 const searchFeedButton = document.querySelector(".search-feed");
+
+/**
+ * Adds an event listener to the search feed button if it exists.
+ */
+
 if (searchFeedButton) {
-  searchFeedButton.addEventListener("click", handleSearch);
+  searchFeedButton.addEventListener("click", () => {
+    const searchInput = document.getElementById("search-feed");
+    const tag = searchInput.value.trim();
+
+    if (tag) {
+      handleSearch(tag);
+    }
+  });
 }

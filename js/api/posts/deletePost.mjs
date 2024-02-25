@@ -1,5 +1,13 @@
 import { POSTS_URL } from "../../constants/constants.mjs";
 
+/**
+ * Deletes a post from the server.
+ * @param {string} id - The ID of the post to delete.
+ * @throws {Error} If the user is not logged in.
+ * @throws {Error} If the server responds with an error.
+ * @returns {Promise<Object>} The server's response to the deletion request.
+ */
+
 export async function deletePost(id) {
   const token = localStorage.getItem("token");
 
@@ -18,7 +26,6 @@ export async function deletePost(id) {
   const url = `${POSTS_URL}/${id}`;
 
   const response = await fetch(url, options);
-  console.log(response);
   const results = await response.json();
 
   if (!response.ok) {

@@ -1,26 +1,22 @@
 import * as utilities from "../../utlilities/storage/index.mjs";
 
-// Assuming you have a function to remove accessToken, let's call it removeAccessToken
-export function logoutHandler() {
-  console.log("logoutHandler is called");
+/**
+ * Handles the logout process.
+ * When the logout button is clicked, the access token is removed from storage and the user is redirected to the home page.
+ */
 
-  // Corrected selector to use #logoutBtn
+export function logoutHandler() {
   const logoutButton = document.querySelector("#logoutBtn");
 
-  // Use 'click' event for handling logout button click
   logoutButton.addEventListener("click", handleLogout);
 
   function handleLogout(event) {
-    // Prevent the default behavior of the button (form submission, etc.)
     event.preventDefault();
 
     console.log("Logging out...");
 
-    // Call the existing remove function from your utilities
     utilities.remove("accessToken");
     console.log("Access token removed.");
-
-    // Redirect to the main login page
-    window.location.href = "/"; // Replace with the actual path to your login page
+    window.location.href = "/";
   }
 }

@@ -1,5 +1,13 @@
 import { POSTS_URL } from "../../constants/constants.mjs";
 
+/**
+ * Creates a new post on the server.
+ * @param {Object} postData - The data for the new post.
+ * @throws {Error} If the user is not logged in.
+ * @throws {Error} If the server responds with an error.
+ * @returns {Promise<Object>} The data for the newly created post.
+ */
+
 export async function createPost(postData) {
   const token = localStorage.getItem("token");
 
