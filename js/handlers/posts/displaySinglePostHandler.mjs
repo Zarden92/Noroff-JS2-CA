@@ -1,31 +1,36 @@
-import { getSinglePost } from "../../api/posts/getSinglePost.mjs"; // Import the function to fetch a single post
-import { displayMessage } from "../../ui/common/displayMessage.mjs"; // Import the function to display messages
+import { getSinglePost } from "../../api/posts/getSinglePost.mjs";
+import { displayMessage } from "../../ui/common/displayMessage.mjs";
 import { renderSinglePost } from "../../ui/posts/renderSinglePost.mjs";
 
 /**
- * @param {dataType} id - checks the id of the post
- * returns displays single post
+ * Fetches and displays a single post based on the post ID from the URL query parameter.
+ * If the post ID is not provided, it throws an error.
+ * If the post is fetched successfully, it changes the document title to include the post title and renders the post.
+ * If there is an error in fetching the post, it logs the error and displays an error message.
+ *
+ * @async
+ * @function
+ * @throws {Error} When no post id is provided in the URL query parameter.
  */
-export async function displaySinglePostHandler() {
-  console.log(displaySinglePostHandler);
 
+export async function displaySinglePostHandler() {
   try {
     // this can be moved into a utility function
     const urlParams = new URLSearchParams(window.location.search);
-    const id = urlParams.get("id"); // Get the post ID from the query parameter
+    const id = urlParams.get("id");
 
     if (!id) {
       throw new Error("No post id was provided");
     }
 
-    const post = await getSinglePost(id); // Fetch the single post
+    const post = await getSinglePost(id);
 
     if (post) {
       document.title = `JS 2 / ${post.title}`;
-      renderSinglePost("#post", post); // Render the single post
+      renderSinglePost("#post", post);
     }
   } catch (error) {
     console.log(error);
-    displayMessage("#post", "danger", error.message); // Display an error message if fetching the post fails
+    displayMessage("#post", "danger", error.message);
   }
 }

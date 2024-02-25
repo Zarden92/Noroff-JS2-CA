@@ -2,7 +2,6 @@ import { POSTS_URL } from "../../constants/constants.mjs";
 
 export async function deletePost(id) {
   const token = localStorage.getItem("token");
-  //console.log("Token retrieved from storage:", token);
 
   if (!token) {
     throw new Error("Please log in to DELETE posts");

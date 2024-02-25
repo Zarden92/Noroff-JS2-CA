@@ -1,5 +1,4 @@
 import { POSTS_URL } from "../../constants/constants.mjs";
-import * as storage from "../../utlilities/storage/index.mjs";
 
 export async function getPosts() {
   const token = localStorage.getItem("token");
