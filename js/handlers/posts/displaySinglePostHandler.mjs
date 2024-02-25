@@ -7,15 +7,11 @@ import { renderSinglePost } from "../../ui/posts/renderSinglePost.mjs";
  * If the post ID is not provided, it throws an error.
  * If the post is fetched successfully, it changes the document title to include the post title and renders the post.
  * If there is an error in fetching the post, it logs the error and displays an error message.
- *
- * @async
- * @function
  * @throws {Error} When no post id is provided in the URL query parameter.
  */
 
 export async function displaySinglePostHandler() {
   try {
-    // this can be moved into a utility function
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get("id");
 

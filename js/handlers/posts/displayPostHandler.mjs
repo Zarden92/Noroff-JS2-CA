@@ -7,10 +7,6 @@ import { renderPosts } from "../../ui/posts/renderPosts.mjs";
  * This function is called to fetch and display posts from the API.
  * It uses the `getPosts` function to fetch the posts, and the `renderPosts` function to display them.
  * If there's an error, it logs the error and displays an error message using the `displayMessage` function.
- *
- * @async
- * @function
- * @returns {Promise<void>}
  */
 
 export async function displayPostHandler() {

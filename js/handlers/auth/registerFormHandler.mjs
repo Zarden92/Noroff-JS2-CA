@@ -4,8 +4,6 @@ import { displayMessage } from "../../ui/common/displayMessage.mjs";
 /**
  * Attaches the register form submission event handler.
  * This function is called to attach the `handleRegisterForm` function to the submit event of the form with id "registerForm".
- *
- * @function
  */
 
 export function registerFormHandler() {
@@ -29,7 +27,6 @@ export function registerFormHandler() {
 
 async function handleRegisterForm(event) {
   event.preventDefault();
-  //console.log(event);
 
   const form = event.target;
 

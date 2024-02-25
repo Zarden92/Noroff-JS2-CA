@@ -1,10 +1,9 @@
-import { searchPosts } from "../../api/posts/searchPost.mjs"; // Update the path accordingly
-import { renderPosts } from "../../ui/posts/renderPosts.mjs"; // Update the path accordingly
+import { searchPosts } from "../../api/posts/searchPost.mjs";
+import { renderPosts } from "../../ui/posts/renderPosts.mjs";
 import { displayMessage } from "../../ui/common/displayMessage.mjs";
 
 /**
  * Handles the search operation.
- *
  * @param {string} tag - The tag to search for.
  * @throws Will throw an error if the tag is not provided.
  */
@@ -23,10 +22,6 @@ export async function handleSearch(tag) {
   }
 }
 
-/**
- * Search feed button element.
- */
-
 const searchFeedButton = document.querySelector(".search-feed");
 
 /**
@@ -43,3 +38,9 @@ if (searchFeedButton) {
     }
   });
 }
+
+// maybe make the function search tiltle and body?
+/*
+/social/posts/search?q=<query>
+Search for posts by their title or body properties.
+*/

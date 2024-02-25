@@ -1,45 +1,40 @@
 .profile_picture {
   box-sizing: border-box;
-  border-radius: 10%;
-  max-width: 300px;
-  height: auto;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
   margin-bottom: 20px;
 }
 
-// Define styles for the grid container
 .profile_container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); // Three columns
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
   justify-items: center;
   align-items: start;
   padding: 25px;
 
-  // Style for medium screens and above
   @media (max-width: 992px) {
-    grid-template-columns: repeat(2, 1fr); // Two columns
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  // Style for small screens and above
   @media (max-width: 768px) {
-    grid-template-columns: 1fr; // Single column
+    grid-template-columns: 1fr;
   }
 }
 
-// Define styles for the grid items (posts)
 .profile_card {
   max-width: 300px;
-  width: 100%; // Take up the full width of the grid cell
+  width: 100%;
   height: 500px;
   margin: 0 auto;
 
-  // Fix the size of the body element
   .card-text {
-    height: 150px; // Set the desired height
-    overflow: hidden; // Hide overflow content
+    height: 150px;
+    overflow: hidden;
   }
 
-  // Fix the size of the image element
   .card-img-top {
     width: 100%;
     height: 100px;

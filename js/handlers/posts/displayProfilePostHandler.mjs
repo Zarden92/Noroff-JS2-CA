@@ -8,6 +8,7 @@ import { deletePostHandler } from "./deletePostHandler.mjs";
  * @param {dataType} userName - checks userName from localStorage
  * returns displays posts from user profile
  */
+
 export async function displayProfilePostHandler() {
   try {
     const userName = localStorage.getItem("userName");

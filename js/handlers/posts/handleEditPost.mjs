@@ -21,7 +21,11 @@ export async function handleEditPost(event) {
 
   try {
     await editPost(post);
-    displayMessage("#message", "success", "Post successfully edited.");
+    displayMessage(
+      "#message",
+      "success",
+      "Successfully edited! Redirecting..."
+    );
     setTimeout(() => {
       window.location.href = "/profile/";
     }, 2000);

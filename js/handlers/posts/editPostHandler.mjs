@@ -33,7 +33,6 @@ export async function editPostHandler() {
  * @param {string} post.id - The id of the post.
  * @param {string} post.title - The title of the post.
  * @param {string} post.body - The body of the post.
- * @param {Object} post.media - The media of the post.
  * @param {string} post.media.url - The URL of the media.
  */
 
@@ -53,5 +52,5 @@ function populateForm(post) {
     form.media.value = media.url;
   }
 
-  form.addEventListener("submit", handleEditPost); // Now handleEditPost is defined in a separate file
+  form.addEventListener("submit", handleEditPost); 
 }

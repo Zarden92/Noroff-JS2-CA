@@ -14,22 +14,26 @@ export async function createPostHandler() {
   const createPostForm = document.querySelector("#createPostForm");
   if (createPostForm) {
     createPostForm.addEventListener("submit", async (event) => {
-      event.preventDefault(); // Prevent default form submission behavior
+      event.preventDefault();
 
-      const newPostText = document.querySelector("#post-body").value;
-      const newPostMediaUrl = document.querySelector("#image-url").value;
-      const newPostTitle = document.querySelector("#post-title").value;
+      const { value: body } = document.querySelector("#post-body");
+      const { value: media } = document.querySelector("#image-url");
+      const { value: title } = document.querySelector("#post-title");
 
       const postData = {
-        title: newPostTitle,
-        body: newPostText,
-        media: newPostMediaUrl,
+        title,
+        body,
+        media,
         tags: [""],
       };
 
       try {
         const json = await createPost(postData);
-        displayMessage("#message", "success", "Posted successfully");
+        displayMessage(
+          "#message",
+          "success",
+          "Posted successfully, redirecting..."
+        );
         setTimeout(() => {
           window.location.href = "/feed/";
         }, 2000);

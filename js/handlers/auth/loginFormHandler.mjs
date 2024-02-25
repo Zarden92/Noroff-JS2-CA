@@ -9,14 +9,12 @@ import * as utlilities from "../../utlilities/storage/index.mjs";
  */
 
 export function loginFormHandler() {
-  //console.log("Function loginFormHandler is called");
   const form = document.querySelector("#loginForm");
   form.addEventListener("submit", handleLoginForm);
 }
 
 /**
  * Handles the login form submission.
- * This function is called when the form with id "loginForm" is submitted.
  * It prevents the default form submission behavior, collects the data from the form fields,
  * and sends a request to login the user using the login API.
  * If the login is successful, it saves the user's token, name, and email to storage, and redirects the user to the feed page.
@@ -25,7 +23,6 @@ export function loginFormHandler() {
  * @async
  * @function
  * @param {Event} event - The form submission event
- * @returns {Promise<void>}
  */
 
 async function handleLoginForm(event) {

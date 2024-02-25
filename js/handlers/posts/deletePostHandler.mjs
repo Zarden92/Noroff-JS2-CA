@@ -17,6 +17,7 @@ export function deletePostHandler() {
  * Confirms the deletion with the user and then calls the deletePost API.
  * @param {Event} event - The event object from the click event.
  */
+
 async function handleDeletePost(event) {
   const { id } = event.target.dataset;
 
