@@ -6,6 +6,7 @@ import { displaySinglePostHandler } from "./handlers/posts/displaySinglePostHand
 import { displayProfilePostHandler } from "./handlers/posts/displayProfilePostHandler.mjs";
 import { editPostHandler } from "./handlers/posts/editPostHandler.mjs";
 import { createPostHandler } from "./handlers/posts/createPostHandler.mjs";
+import { handleSearch } from "./handlers/posts/handleSearch.mjs";
 
 function router() {
   const pathname = window.location.pathname;
@@ -25,6 +26,7 @@ function router() {
     case "/feed/index.html":
       logoutHandler();
       displayPostHandler();
+      handleSearch();
       break;
     case "/feed/newPost.html":
       logoutHandler();
