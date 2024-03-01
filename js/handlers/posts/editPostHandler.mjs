@@ -37,7 +37,7 @@ export async function editPostHandler() {
  */
 
 function populateForm(post) {
-  const { id, title, body, media } = post;
+  const { id, title, body, media, tags } = post;
   const form = document.querySelector("#editPostForm");
   if (!form) {
     console.error("Form element not found");
@@ -47,10 +47,11 @@ function populateForm(post) {
   form.id.value = id;
   form.title.value = title;
   form.body.value = body;
+  form.tags.value = tags.join(", ");
 
   if (media && media.url) {
     form.media.value = media.url;
   }
 
-  form.addEventListener("submit", handleEditPost); 
+  form.addEventListener("submit", handleEditPost);
 }

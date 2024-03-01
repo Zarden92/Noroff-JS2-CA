@@ -17,7 +17,8 @@ export async function handleEditPost(event) {
 
   const formData = new FormData(form);
   const entries = formData.entries();
-  const post = Object.fromEntries(entries);
+  const post = Object.fromEntries(formData.entries());
+  post.tags = post.tags.split(", ").map((tag) => tag.trim()); // Ensure tags are converted to array
 
   try {
     await editPost(post);

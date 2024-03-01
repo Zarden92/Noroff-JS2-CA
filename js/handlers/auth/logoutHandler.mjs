@@ -1,4 +1,4 @@
-import * as utilities from "../../utlilities/storage/index.mjs";
+import { remove } from "../../utlilities/storage/index.mjs";
 
 /**
  * Handles the logout process.
@@ -15,8 +15,11 @@ export function logoutHandler() {
 
     console.log("Logging out...");
 
-    utilities.remove("accessToken");
-    console.log("Access token removed.");
+    remove("token");
+    remove("userName");
+    remove("email");
+
+    console.log("localstorage cleared..");
     window.location.href = "/";
   }
 }

@@ -40,10 +40,12 @@ async function handleLoginForm(event) {
     fieldset.disabled = true;
     const response = await login(userDetails);
 
+    const { accessToken, name, email } = response;
+
     if (response && response.accessToken) {
-      utlilities.save("token", response.accessToken);
-      utlilities.save("userName", response.name);
-      utlilities.save("email", response.email);
+      utlilities.save("token", accessToken);
+      utlilities.save("userName", name);
+      utlilities.save("email", email);
       window.location.href = "/feed";
     }
   } catch (error) {

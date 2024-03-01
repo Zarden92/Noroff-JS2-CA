@@ -21,7 +21,7 @@ export function renderPosts(parent, posts) {
  */
 
 function createPost(post) {
-  const { id, title: heading, body, media } = post;
+  const { id, title: heading, body, media, tags } = post;
 
   const card = document.createElement("div");
   card.classList.add("card", "mt-3", "text-center");
@@ -41,6 +41,15 @@ function createPost(post) {
   img.src = media;
   img.classList.add("card-img-top");
 
+  const tagsDiv = document.createElement("div");
+  tagsDiv.classList.add("tags", "card-body");
+
+  const tagsContent = tags.join(", ");
+  const tagsLabel = document.createElement("span");
+  tagsLabel.textContent = `Tags: ${tagsContent}`;
+
+  tagsDiv.appendChild(tagsLabel);
+
   const button = document.createElement("button");
   button.textContent = "Read more...";
   button.classList.add("btn", "btn-success");
@@ -52,6 +61,7 @@ function createPost(post) {
   card.appendChild(title);
   card.appendChild(img);
   card.appendChild(bodyParagraph);
+  card.appendChild(tagsDiv);
   card.appendChild(button);
 
   return card;

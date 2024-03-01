@@ -20,7 +20,7 @@ export function renderSinglePost(parent, post) {
  */
 
 function createPost(post) {
-  const { title: heading, body, media } = post; // destructuring
+  const { title: heading, body, media, tags } = post; // destructuring
 
   const card = document.createElement("div");
   card.classList.add("card", "text-center", "bg-light");
@@ -35,6 +35,14 @@ function createPost(post) {
   const img = document.createElement("img");
   img.src = media;
   img.classList.add("card-img-top", "mt-5");
+
+  const tagsDiv = document.createElement("div");
+  tagsDiv.classList.add("tags", "card-body");
+
+  const tagsContent = tags.join(", ");
+  const tagsLabel = document.createElement("span");
+  tagsLabel.textContent = `Tags: ${tagsContent}`;
+  tagsDiv.appendChild(tagsLabel);
 
   const createdDate = document.createElement("p");
   createdDate.textContent = `Created: ${new Date(
@@ -60,6 +68,7 @@ function createPost(post) {
 
   cardBody.appendChild(title);
   cardBody.appendChild(text);
+  cardBody.appendChild(tagsDiv);
   cardBody.appendChild(createdDate);
   cardBody.appendChild(updatedDate);
   card.appendChild(img);

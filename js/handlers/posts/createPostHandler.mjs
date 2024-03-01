@@ -19,12 +19,13 @@ export async function createPostHandler() {
       const { value: body } = document.querySelector("#post-body");
       const { value: media } = document.querySelector("#image-url");
       const { value: title } = document.querySelector("#post-title");
+      const { value: tags } = document.querySelector("#post-tags");
 
       const postData = {
         title,
         body,
         media,
-        tags: [""],
+        tags: tags.split(",").map((tag) => tag.trim()), // Split tags by commas and trim whitespace
       };
 
       try {
